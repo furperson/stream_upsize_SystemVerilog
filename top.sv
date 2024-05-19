@@ -47,7 +47,7 @@ always @(posedge clk and s_valid_i and !full)  begin // block - reading packets
     end
 end
 
-always @(posedge clk and ) begin
+always @(posedge clk and ) begin //block - output transaction 
 
     
 end
