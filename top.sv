@@ -15,13 +15,17 @@ module stream_upsize #(
     input   logic                       m_ready_i
 );
 
+sync_fifo fifo();// fifo for saving temp date of transaction 
+
 logic [T_DATA_WIDTH-1:0] inner_trans [T_DATA_RATIO];
+logic [T_DATA_WIDTH-1:0] in_data = b0;
 logic counter ;
 always @(posedge clk and s_valid_i) begin
     if(rst_n)
     else begin 
         s_ready_o <= 1'b1;
-
+        in_data <= s_data_i;
+        
 
 
     end
