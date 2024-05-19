@@ -38,11 +38,9 @@ sync_fifo #(DWIDTH= T_DATA_RATIO*T_DATA_WIDTH + T_DATA_RATIO, DEPTH=8 ) fifo ( .
 logic [T_DATA_WIDTH-1:0] inner_trans [T_DATA_RATIO];
 logic [T_DATA_RATIO] counter = 0; //counter for packet output
 
-always @(posedge clk and s_valid_i and !full)  begin // block - reading packets
+always @(posedge clk and s_valid_i and )  begin // block - reading packets
     if(rst_n)
     else begin 
-        s_ready_o <= 1'b1;
-        
 
     end
 end
