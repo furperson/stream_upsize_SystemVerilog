@@ -15,7 +15,8 @@ module stream_upsize #(
     input   logic                       m_ready_i
 );
 
-logic [T_DATA_WIDTH-1:0] inner_trans [T_DATA_RATIO]
+logic [T_DATA_WIDTH-1:0] inner_trans [T_DATA_RATIO];
+logic counter ;
 always @(posedge clk and s_valid_i) begin
     if(rst_n)
     else begin 
