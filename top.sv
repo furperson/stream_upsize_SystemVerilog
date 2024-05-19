@@ -23,7 +23,7 @@ logic f_din;
 logic f_dout;
 logic empty;
 logic full;
-sync_fifo #(DWIDTH= , DEPTH=8 ) fifo ( .rstn(rst_n),
+sync_fifo #(DWIDTH= T_DATA_RATIO*T_DATA_WIDTH + T_DATA_RATIO, DEPTH=8 ) fifo ( .rstn(rst_n),
                          .wr_en(wr_en),
                          .rd_en(rd_en),
                          .wr_clk(clk),
@@ -36,14 +36,14 @@ sync_fifo #(DWIDTH= , DEPTH=8 ) fifo ( .rstn(rst_n),
 // end fifo section
 
 logic [T_DATA_WIDTH-1:0] inner_trans [T_DATA_RATIO];
-logic [T_DATA_WIDTH-1:0] in_data = 0;
-logic counter ;
+logic [T_DATA_RATIO] counter = 0; //counter for packet output
 
 always @(posedge clk and s_valid_i and !full)  begin // block - reading packets
     if(rst_n)
     else begin 
         s_ready_o <= 1'b1;
-        in_data <= s_data_i;
+        
+
     end
 end
 
